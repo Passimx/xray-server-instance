@@ -1,0 +1,17 @@
+version: "3.9"
+
+services:
+  xray-wrapper:
+    build: .
+    container_name: xray-wrapper
+    restart: always
+    env_file: .env
+    ports:
+      - ${XRAY_WRAPPER_PORT:-443}:${XRAY_WRAPPER_PORT:-443}
+    networks:
+      - xray
+
+networks:
+  xray:
+    name: xray
+    external: true
