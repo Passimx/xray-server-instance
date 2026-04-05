@@ -1,17 +1,18 @@
 version: "3.9"
 
 services:
-  xray-wrapper:
+  xray:
     build: .
     container_name: xray-wrapper
     restart: always
     env_file: .env
+    environment:
+      - TZ=Europe/Amsterdam
+      - XRAY_PORT=${XRAY_PORT:-443}
+      - API_PORT=${API_PORT:-440}
+    volumes:
+      - ./xray/data:/etc/xray
+      - ./xray/logs:/var/log/xray
     ports:
-      - ${XRAY_WRAPPER_PORT:-443}:${XRAY_WRAPPER_PORT:-443}
-    networks:
-      - xray
-
-networks:
-  xray:
-    name: xray
-    external: true
+      - ${XRAY_PORT:-443}:${XRAY_PORT:-443}
+      - ${API_PORT:-440}:${API_PORT:-440}

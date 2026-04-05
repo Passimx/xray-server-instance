@@ -5,6 +5,6 @@ config();
 
 export const Envs = {
   app: {
-    port: process.env.APP_PORT ?? 3000,
+    port: process.env.API_PORT ?? 3000,
   },
 };
