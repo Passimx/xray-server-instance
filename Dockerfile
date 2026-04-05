@@ -2,7 +2,7 @@
 FROM node:20-slim AS build
 WORKDIR /app
 COPY . .
-RUN npm ci --ignore-scripts --omit=dev
+RUN npm ci --ignore-scripts
 RUN npm run build
 
 FROM node:20-slim
