@@ -1,7 +1,7 @@
 {
   "name": "xray-wrapper",
   "version": "1.0.1",
-  "description": "",
+  "description": "Xray Server instance powered HTTP API",
   "author": "passimx",
   "private": false,
   "license": "MIT LICENSE",

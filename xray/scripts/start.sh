@@ -28,16 +28,18 @@ sed -e "s/\"XRAY_PORT\"/$XRAY_PORT/g" \
     -e "s/\"PRIVATE_KEY\"/\"$PRIVATE_KEY\"/g" \
     -e "s/\"SHORT_ID\"/\"$SHORT_ID\"/g" \
     -e "s/SERVER_NAME/$SERVER_NAME/g" \
-    /etc/xray/data/config.json > $TMP_CONFIG
+    /etc/xray/config.json > $TMP_CONFIG
 
 xray -config $TMP_CONFIG &
-XRAY_PID=$!
+#XRAY_PID=$!
 
 sleep 3
 
 echo "Starting NestJS..."
 node /app/dist/src/main &
+NODE_PID=$!
 
 sleep 2
 
-wait $XRAY_PID
+#wait $XRAY_PID
+wait $NODE_PID
