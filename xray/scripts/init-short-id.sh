@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-SHORT_ID_FILE="/etc/xray/short_id.key"
+SHORT_ID_FILE="/xray/data/short_id.key"
 
 if [ ! -f "$SHORT_ID_FILE" ] || [ ! -s "$SHORT_ID_FILE" ]; then
   echo "Generating SHORT_ID..."

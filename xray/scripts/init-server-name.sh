@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 
-SERVER_NAME_FILE="/etc/xray/server.name"
+SERVER_NAME_FILE="/xray/data/server.name"
 
 if [ ! -f "$SERVER_NAME_FILE" ] || [ ! -s "$SERVER_NAME_FILE" ]; then
   echo "Generating SERVER_NAME..."

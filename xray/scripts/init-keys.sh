@@ -1,8 +1,8 @@
 #!/bin/sh
 set -e
 
-PUBLIC_KEY_FILE="/etc/xray/public.key"
-PRIVATE_KEY_FILE="/etc/xray/private.key"
+PUBLIC_KEY_FILE="/xray/data/public.key"
+PRIVATE_KEY_FILE="/xray/data/private.key"
 
 mkdir -p /data
 touch "$PRIVATE_KEY_FILE" "$PUBLIC_KEY_FILE"

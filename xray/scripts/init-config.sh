@@ -1,11 +1,11 @@
 #!/bin/bash
 set -e
 
-CONFIG_FILE="/etc/xray/config.json"
-PRIVATE_KEY_FILE="/etc/xray/private.key"
-SHORT_ID_FILE="/etc/xray/short_id.key"
-SERVER_NAME_FILE="/etc/xray/server.name"
-PORT_FILE="/etc/xray/server.port"
+CONFIG_FILE="/xray/data/config.json"
+PRIVATE_KEY_FILE="/xray/data/private.key"
+SHORT_ID_FILE="/xray/data/short_id.key"
+SERVER_NAME_FILE="/xray/data/server.name"
+PORT_FILE="/xray/data/server.port"
 
 # Проверяем, существует ли конфиг. Если нет — создаем.
 if [ ! -f "$CONFIG_FILE" ]; then
@@ -27,8 +27,8 @@ if [ ! -f "$CONFIG_FILE" ]; then
     cat <<EOF > "$CONFIG_FILE"
 {
   "log": {
-    "access": "/var/log/xray/access.log",
-    "error": "/var/log/xray/error.log",
+    "access": "/xray/logs/access.log",
+    "error": "/xray/logs/error.log",
     "loglevel": "info"
   },
   "api": {
