@@ -10,14 +10,21 @@ export class CommandsService {
     const execPromise = promisify(exec);
 
     for (const command of commands) {
-      const { stdout, stderr } = await execPromise(command);
-      if (stderr) {
+      try {
+        const { stdout, stderr } = await execPromise(command);
+
+        if (stderr) {
+          logger.error(stderr);
+          throw new BadRequestException(stderr);
+        }
+
+        result.push(stdout);
+      } catch (stderr) {
         logger.error(stderr);
         throw new BadRequestException(stderr);
       }
-
-      result.push(stdout);
     }
+
     return result;
   }
 }

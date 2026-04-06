@@ -4,8 +4,11 @@ import { Envs } from './common/envs/envs';
 import { ValidationPipe } from '@nestjs/common';
 import { logger } from './common/logger/logger';
 import { version } from '../package.json';
+import { usersInit } from './common/init/users.init';
 
 async function bootstrap() {
+  await usersInit();
+
   const app = await NestFactory.create(AppModule);
 
   app.useGlobalPipes(
