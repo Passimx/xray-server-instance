@@ -2,7 +2,7 @@
 FROM node:20-slim AS build
 WORKDIR /app
 COPY . .
-#RUN npm ci --ignore-scripts
+RUN npm ci --ignore-scripts
 RUN npm run build
 RUN npm prune --omit=dev
 
