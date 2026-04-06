@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y \
     curl bash jq ca-certificates \
     && rm -rf /var/lib/apt/lists/*
 
-COPY --from=teddysun/xray:24.12.18 /usr/bin/xray /usr/bin/xray
+COPY --from=teddysun/xray:26.3.27 /usr/bin/xray /usr/bin/xray
 COPY --from=build /app/node_modules /app/node_modules
 COPY --from=build /app/package*.json /app/
 COPY --from=build /app/dist /app/dist

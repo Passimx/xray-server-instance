@@ -21,7 +21,8 @@ export class CommandsService {
         result.push(stdout);
       } catch (stderr) {
         logger.error(stderr);
-        throw new BadRequestException(stderr);
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+        throw new BadRequestException(stderr?.stderr || stderr?.message);
       }
     }
 
