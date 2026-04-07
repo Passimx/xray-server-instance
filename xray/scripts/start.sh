@@ -35,11 +35,11 @@ XRAY_PID=$!
 
 sleep 3
 
+bash ./init-users.sh
+
 echo "Starting NestJS..."
 node /app/dist/src/main &
-#NODE_PID=$!
 
 sleep 2
 
 wait $XRAY_PID
-#wait $NODE_PID
