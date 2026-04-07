@@ -27,9 +27,9 @@ if [ ! -f "$CONFIG_FILE" ]; then
     cat <<EOF > "$CONFIG_FILE"
 {
   "log": {
-    "access": "/xray/logs/access.log",
-    "error": "/xray/logs/error.log",
-    "loglevel": "info"
+    "access": "none",
+    "error": "none",
+    "loglevel": "none"
   },
   "api": {
     "tag": "api",
